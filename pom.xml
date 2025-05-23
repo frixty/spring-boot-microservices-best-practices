@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.0-SNAPSHOT</version>
+        <version>2.5.14</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.qadah</groupId>
@@ -128,6 +128,26 @@
                     <target>11</target>
                 </configuration>
             </plugin>
+      <plugin>
+        <groupId>org.owasp</groupId>
+        <artifactId>dependency-check-maven</artifactId>
+        <version>12.1.1</version>
+        <configuration>
+          <formats>
+            <format>JSON</format>
+            <format>HTML</format>
+          </formats>
+          <outputDirectory>${project.basedir}/v-reports</outputDirectory>
+          <nvdApiKey>d20dcd2a-d552-46ad-bec9-a68625f30ab7</nvdApiKey>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
         </plugins>
     </build>
 
